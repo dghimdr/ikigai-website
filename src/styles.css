@@ -569,6 +569,61 @@ h3 {
     filter 220ms ease;
 }
 
+.title-card-placeholder {
+  position: relative;
+  display: grid;
+  height: 100%;
+  align-content: end;
+  gap: 0.42rem;
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(247, 247, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 247, 244, 0.032) 1px, transparent 1px),
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.12), transparent 16rem),
+    #050505;
+  background-size: 4.6rem 4.6rem, 4.6rem 4.6rem, auto, auto;
+}
+
+.title-card-placeholder::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.16;
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55)),
+    repeating-linear-gradient(90deg, transparent 0 6rem, rgba(255, 255, 255, 0.04) 6.04rem, transparent 6.1rem);
+}
+
+.title-card-placeholder span,
+.title-card-placeholder strong,
+.title-card-placeholder em {
+  position: relative;
+}
+
+.title-card-placeholder span,
+.title-card-placeholder em {
+  color: rgba(247, 247, 244, 0.62);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 820;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title-card-placeholder strong {
+  max-width: 9em;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.7rem);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
 .title-card:hover .title-card-image,
 .title-card:focus-within .title-card-image {
   transform: scale(1.008);

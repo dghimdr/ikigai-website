@@ -112,6 +112,35 @@ const titles = [
     imagePosition: 'center 62%',
     alt: 'Such a Vivid Imagination title still',
   },
+  {
+    title: 'Subject',
+    year: '2022',
+    format: 'Feature Film',
+    metadata: [
+      ['Directed by', 'Tristan Barr'],
+      ['Starring', 'Tristan Barr, Stephen Phillips, Gaby Seow, Scarlett Walker, Aaron Walton'],
+      ['U.S. Release', 'Screambox / Cineverse'],
+      ['ANZ Release', 'Umbrella Entertainment'],
+    ],
+    imdb: 'https://www.imdb.com/title/tt10972912/?ref_=mv_close',
+    image: '/assets/subject-title.png',
+    imagePosition: 'center center',
+    alt: 'Subject title still',
+  },
+  {
+    title: 'Head Count',
+    year: '2023',
+    format: 'Feature Film',
+    metadata: [
+      ['Directed by', 'Ben Burghart and Jacob Burghart'],
+      ['Starring', 'Aaron Jakubenko, Ryan Kwanten, Melanie Zanetti, Jeffrey Staab'],
+      ['North America', 'Shout! Studios'],
+    ],
+    imdb: 'https://www.imdb.com/title/tt22044656/?ref_=nm_flmg_job_1_accord_2_cdt_t_10',
+    image: '/assets/head-count-title.webp',
+    imagePosition: 'center center',
+    alt: 'Head Count title still',
+  },
 ];
 
 const pressItems = [
@@ -666,23 +695,33 @@ function Titles() {
       <div className="titles-heading">
         <div>
           <p className="eyebrow">Selected Titles</p>
-          <h2>Financed across global markets.</h2>
+          <h2>Selected titles across global markets.</h2>
         </div>
-        <p className="section-copy">A focused selection of projects supported by IKIGAI.</p>
+        <p className="section-copy">
+          A focused selection of titles connected to IKIGAI’s wider film finance and production network.
+        </p>
       </div>
       <div className="titles-grid">
         {titles.map((item) => (
           <article className="title-card" key={item.title}>
             <figure className="title-card-media">
-              <img
-                className="title-card-image"
-                src={item.image}
-                sizes="(max-width: 820px) calc(100vw - 1.4rem), 50vw"
-                alt={item.alt}
-                loading="lazy"
-                decoding="async"
-                style={{ objectPosition: item.imagePosition }}
-              />
+              {item.image ? (
+                <img
+                  className="title-card-image"
+                  src={item.image}
+                  sizes="(max-width: 820px) calc(100vw - 1.4rem), 50vw"
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: item.imagePosition }}
+                />
+              ) : (
+                <div className="title-card-placeholder" aria-hidden="true">
+                  <span>{item.format}</span>
+                  <strong>{item.title}</strong>
+                  <em>{item.year}</em>
+                </div>
+              )}
             </figure>
             <div className="title-card-content">
               <p className="title-format">{item.format}</p>
